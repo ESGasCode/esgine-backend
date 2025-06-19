@@ -1,0 +1,24 @@
+- rule_id: issb-gov-001
+  keyword: "governance processes"
+  must_exist: true
+  description: "Disclose the governance processes used to monitor sustainability risks."
+
+- rule_id: issb-strategy-001
+  keyword: "sustainability risks and opportunities"
+  must_exist: true
+  description: "Describe sustainability-related risks and opportunities over the short, medium, and long term."
+
+- rule_id: issb-risk-001
+  keyword: "risk identification and assessment"
+  must_exist: true
+  description: "Explain how sustainability risks are identified, assessed, and managed."
+
+- rule_id: issb-metrics-001
+  keyword: "ghg emissions"
+  must_exist: true
+  description: "Disclose metrics such as greenhouse gas emissions and progress toward ESG targets."
+
+- rule_id: issb-assurance-001
+  keyword: "external assurance"
+  must_exist: true
+  description: "State whether the sustainability disclosures were externally assured."
