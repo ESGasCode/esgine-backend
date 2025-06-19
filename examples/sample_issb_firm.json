@@ -1,21 +1,21 @@
 {
     "governance": {
-        "structure": "The board has established a sustainability committee overseeing climate and ESG issues."
+        "structure": "The board's audit committee oversees all sustainability-related risks and disclosures quarterly."
     },
     "strategy": {
-        "risks_opportunities": "Climate change and biodiversity loss present medium-term risks; green innovation offers long-term opportunity."
+        "risks_opportunities": "The organization anticipates medium-term risks from carbon taxes and long-term gains from renewable energy projects."
     },
     "risk_management": {
-        "approach": "Integrated into enterprise risk management with quarterly reviews and escalation protocols."
+        "approach": "A three-line defense model integrates climate risk across departments, reviewed bi-annually by risk leadership."
     },
     "metrics": {
         "disclosures": {
-            "scope1_emissions": "1000 tCO2e",
-            "scope2_emissions": "750 tCO2e",
-            "targets": "Net-zero by 2040, with interim 30% reduction by 2030."
+            "scope1_emissions": "820 tCO2e",
+            "scope2_emissions": "600 tCO2e",
+            "targets": "Carbon-neutral operations by 2035 with annual audits."
         }
     },
     "assurance": {
-        "status": "Limited assurance by third-party provider for climate disclosures."
+        "status": "Full assurance provided by Deloitte LLP with limited assurance on forward-looking statements."
     }
 }
