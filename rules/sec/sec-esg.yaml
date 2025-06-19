@@ -1,0 +1,49 @@
+- regulation: SEC Reg S-K Item 1501
+  rule_id: sec-gov-001
+  field: governance.board_oversight
+  must_exist: true
+  description: Disclose board oversight of climate-related risks.
+- regulation: SEC Reg S-K Item 1501
+  rule_id: sec-gov-002
+  field: governance.management_role
+  must_exist: true
+  description: "Disclose management\u2019s role in assessing and managing climate-related\
+    \ risks."
+- regulation: SEC Reg S-K Item 1502
+  rule_id: sec-strategy-001
+  field: strategy.material_climate_risks
+  must_exist: true
+  description: Describe material climate-related risks and their actual or likely
+    impacts.
+- regulation: SEC Reg S-K Item 1503
+  rule_id: sec-risk-001
+  field: risk_management.process
+  must_exist: true
+  description: Describe processes for identifying, assessing, and managing climate-related
+    risks.
+- regulation: SEC Reg S-K Item 1504
+  rule_id: sec-metrics-001
+  field: metrics.emissions.scope1
+  must_exist: true
+  description: Disclose Scope 1 GHG emissions.
+- regulation: SEC Reg S-K Item 1504
+  rule_id: sec-metrics-002
+  field: metrics.emissions.scope2
+  must_exist: true
+  description: Disclose Scope 2 GHG emissions.
+- regulation: SEC Reg S-K Item 1504
+  rule_id: sec-metrics-003
+  field: metrics.emissions.scope3
+  must_exist: false
+  description: If material, disclose Scope 3 GHG emissions.
+- regulation: SEC Reg S-K Item 1505
+  rule_id: sec-targets-001
+  field: metrics.climate_targets
+  must_exist: true
+  description: Disclose climate-related targets and progress.
+- regulation: SEC Reg S-K Item 1506
+  rule_id: sec-assurance-001
+  field: metrics.ghg_attestation_level
+  must_exist: true
+  description: Disclose level of assurance and attestation obtained on GHG emissions.
+
