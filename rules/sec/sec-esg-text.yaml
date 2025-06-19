@@ -1,24 +1,54 @@
+- rule_id: sec-gov-001
+  keyword: "board oversight"
+  must_exist: true
+  description: "Describe the board’s oversight of climate-related risks and opportunities."
+
 - rule_id: sec-strategy-001
   keyword: "climate-related risks"
   must_exist: true
-  description: "Describe the climate-related risks reasonably likely to have a material impact on the business."
+  description: "Disclose material climate-related risks likely to impact the business."
 
-- rule_id: sec-governance-001
-  keyword: "board oversight"
-  must_exist: true
-  description: "Disclose board oversight of climate-related risks."
+- rule_id: sec-strategy-002
+  keyword: "transition risks"
+  must_exist: false
+  description: "Mention how the company addresses risks related to the transition to a low-carbon economy."
 
 - rule_id: sec-risk-001
-  keyword: "risk management framework"
-  must_exist: true
-  description: "Describe the framework for identifying and managing ESG risks."
+  keyword: "scenario analysis"
+  must_exist: false
+  description: "Indicate whether scenario analysis is used to assess climate resilience."
 
 - rule_id: sec-metrics-001
-  keyword: "greenhouse gas emissions"
+  keyword: "scope 1 emissions"
   must_exist: true
-  description: "Disclose material Scope 1, Scope 2, and Scope 3 GHG emissions."
+  description: "Disclose Scope 1 direct greenhouse gas emissions."
+
+- rule_id: sec-metrics-002
+  keyword: "scope 2 emissions"
+  must_exist: true
+  description: "Disclose Scope 2 indirect emissions from energy use."
+
+- rule_id: sec-metrics-003
+  keyword: "scope 3 emissions"
+  must_exist: false
+  description: "Disclose Scope 3 emissions if material."
+
+- rule_id: sec-controls-001
+  keyword: "internal control"
+  must_exist: true
+  description: "Explain the internal controls and procedures for climate-related disclosures."
+
+- rule_id: sec-targets-001
+  keyword: "climate targets"
+  must_exist: true
+  description: "Describe the climate-related targets and progress made toward achieving them."
+
+- rule_id: sec-finance-001
+  keyword: "climate-related financial impact"
+  must_exist: true
+  description: "Describe the financial impact of climate-related risks on financial statements."
 
 - rule_id: sec-assurance-001
-  keyword: "limited assurance"
-  must_exist: true
-  description: "Describe any assurance or verification obtained over ESG disclosures."
+  keyword: "third-party assurance"
+  must_exist: false
+  description: "Indicate whether GHG emissions disclosures are assured by a third party."
