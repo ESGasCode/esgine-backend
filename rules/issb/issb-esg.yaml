@@ -1,21 +1,30 @@
-{
-    "governance": {
-        "structure": "The board has established a sustainability committee overseeing climate and ESG issues."
-    },
-    "strategy": {
-        "risks_opportunities": "Climate change and biodiversity loss present medium-term risks; green innovation offers long-term opportunity."
-    },
-    "risk_management": {
-        "approach": "Integrated into enterprise risk management with quarterly reviews and escalation protocols."
-    },
-    "metrics": {
-        "disclosures": {
-            "scope1_emissions": "1000 tCO2e",
-            "scope2_emissions": "750 tCO2e",
-            "targets": "Net-zero by 2040, with interim 30% reduction by 2030."
-        }
-    },
-    "assurance": {
-        "status": "Limited assurance by third-party provider for climate disclosures."
-    }
-}
+- regulation: "IFRS S1 \xA725\u201326"
+  rule_id: issb-gov-001
+  field: governance.structure
+  must_exist: true
+  description: Disclose the governance processes, controls, and procedures used to
+    monitor and manage sustainability-related risks and opportunities.
+- regulation: "IFRS S1 \xA733"
+  rule_id: issb-strategy-001
+  field: strategy.risks_opportunities
+  must_exist: true
+  description: Describe sustainability-related risks and opportunities over short,
+    medium, and long term.
+- regulation: "IFRS S1 \xA734"
+  rule_id: issb-risk-001
+  field: risk_management.approach
+  must_exist: true
+  description: Describe how sustainability-related risks are identified, assessed,
+    and managed.
+- regulation: "IFRS S2 \xA721"
+  rule_id: issb-metrics-001
+  field: metrics.disclosures
+  must_exist: true
+  description: Disclose sustainability-related metrics, including greenhouse gas emissions
+    and progress toward targets.
+- regulation: ISSB Assurance Guidance
+  rule_id: issb-assurance-001
+  field: assurance.status
+  must_exist: true
+  description: Disclose whether sustainability information is subject to assurance
+    and describe the level of assurance obtained.
