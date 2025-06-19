@@ -1,0 +1,21 @@
+{
+    "governance": {
+        "board_oversight": "The board monitors climate-related risks through quarterly updates.",
+        "management_role": "Senior leadership is accountable for implementing climate strategy."
+    },
+    "strategy": {
+        "material_climate_risks": "Transition risks from regulatory shifts and market preferences are material."
+    },
+    "risk_management": {
+        "process": "Climate-related risks are assessed alongside financial and operational risks."
+    },
+    "metrics": {
+        "emissions": {
+            "scope1": "22,000 tCO2e",
+            "scope2": "18,000 tCO2e",
+            "scope3": "70,000 tCO2e (estimated)"
+        },
+        "climate_targets": "Reduce Scope 1+2 emissions by 50% by 2030 relative to 2020 baseline.",
+        "ghg_attestation_level": "Limited assurance from third-party provider"
+    }
+}
