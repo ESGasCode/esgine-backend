@@ -1,21 +1,24 @@
 {
-    "governance": {
-        "structure": "The board's audit committee oversees all sustainability-related risks and disclosures quarterly."
-    },
-    "strategy": {
-        "risks_opportunities": "The organization anticipates medium-term risks from carbon taxes and long-term gains from renewable energy projects."
-    },
-    "risk_management": {
-        "approach": "A three-line defense model integrates climate risk across departments, reviewed bi-annually by risk leadership."
-    },
-    "metrics": {
-        "disclosures": {
-            "scope1_emissions": "820 tCO2e",
-            "scope2_emissions": "600 tCO2e",
-            "targets": "Carbon-neutral operations by 2035 with annual audits."
-        }
-    },
-    "assurance": {
-        "status": "Full assurance provided by Deloitte LLP with limited assurance on forward-looking statements."
+  "governance": {
+    "structure": "The board oversees ESG risk and sustainability matters through a dedicated ESG committee."
+  },
+  "strategy": {
+    "risks_opportunities": "We assess climate change as both a financial risk and a business opportunity across short, medium, and long-term horizons."
+  },
+  "risk_management": {
+    "approach": "Sustainability-related risks are assessed quarterly using our enterprise risk framework."
+  },
+  "metrics": {
+    "disclosures": {
+      "ghg_emissions": {
+        "scope1": 15000,
+        "scope2": 12000,
+        "scope3": 50000
+      },
+      "progress": "On track to reduce total emissions by 30% by 2030."
     }
+  },
+  "assurance": {
+    "status": "Limited assurance was obtained from a third-party auditor for GHG disclosures."
+  }
 }
