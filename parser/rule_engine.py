@@ -1,50 +1,52 @@
 import yaml
 import json
 
-def run_rule_engine(data, rules):
+def validate(report, rules):
     results = []
     passed = 0
     failed = 0
 
-    is_text_based = isinstance(data, dict) and "report_text" in data
-    report_text = data.get("report_text", "").lower() if is_text_based else ""
+    # Determine if input is structured JSON (dict) or text (str)
+    is_structured = isinstance(report, dict) and "report_text" not in report
 
     for rule in rules:
-        rule_id = rule.get("rule_id", "")
-        description = rule.get("description", "")
-        must_exist = rule.get("must_exist", True)
         keyword = rule.get("keyword", "").lower()
-        field = rule.get("field", "")
+        must_exist = rule.get("must_exist", False)
+        description = rule.get("description", "")
+        rule_id = rule.get("rule_id", "unknown")
 
-        if is_text_based:
-            exists = keyword in report_text if keyword else False
+        if is_structured:
+            # JSON: check if the key exists in the report
+            exists = keyword in report
         else:
-            value = data
-            for key in field.split("."):
-                if isinstance(value, dict):
-                    value = value.get(key)
-                else:
-                    value = None
-                    break
-            exists = value is not None
+            # Text: check if keyword exists in the uploaded text
+            text = report.get("report_text", "").lower()
+            exists = keyword in text
 
-        compliant = exists if must_exist else True
-
-        results.append({
-            "rule_id": rule_id,
-            "description": description,
-            "status": compliant
-        })
+        compliant = (exists == must_exist)
 
         if compliant:
             passed += 1
         else:
             failed += 1
 
-    score = (passed / len(rules)) * 100 if rules else 0
+        results.append({
+            "rule_id": rule_id,
+            "description": description,
+            "status": compliant,
+            "must_exist": must_exist,
+            "found": exists
+        })
+
+    score = round((passed / (passed + failed)) * 100, 2) if (passed + failed) > 0 else 0
+
     return {
-        "score": round(score, 2),
+        "score": score,
         "passed": passed,
         "failed": failed,
         "rules": results
     }
+
+
+def run_rule_engine(data, rules):
+    return validate(data, rules)
