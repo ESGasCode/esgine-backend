@@ -1,0 +1,16 @@
+{
+    "pai": {
+        "indicators": {
+            "environmental": {
+                "ghg_intensity": "210 tCO2e per million EUR invested"
+            },
+            "social": {
+                "gender_pay_gap": "12.5% average across portfolio companies"
+            }
+        }
+    },
+    "sustainability_objectives": "Promote environmental characteristics by investing in green bonds and companies aligned with SDGs.",
+    "taxonomy_alignment": {
+        "percentage": "42% of investments aligned with EU Taxonomy"
+    }
+}
