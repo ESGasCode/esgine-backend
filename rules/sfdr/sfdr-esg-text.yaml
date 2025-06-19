@@ -1,0 +1,24 @@
+- rule_id: sfdr-pai-001
+  keyword: "principal adverse impacts"
+  must_exist: true
+  description: "Disclose how principal adverse impacts on sustainability factors are considered."
+
+- rule_id: sfdr-policy-001
+  keyword: "sustainability risk policy"
+  must_exist: true
+  description: "Describe policies on the integration of sustainability risks in investment decisions."
+
+- rule_id: sfdr-metrics-001
+  keyword: "emissions intensity"
+  must_exist: true
+  description: "Disclose emissions intensity as part of sustainability indicators."
+
+- rule_id: sfdr-strategy-001
+  keyword: "investment strategy"
+  must_exist: true
+  description: "Explain the sustainability-related characteristics of the investment strategy."
+
+- rule_id: sfdr-remuneration-001
+  keyword: "remuneration policies"
+  must_exist: true
+  description: "Describe how remuneration policies align with sustainability risks."
