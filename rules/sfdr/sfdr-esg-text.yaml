@@ -1,24 +1,49 @@
-- rule_id: sfdr-pai-001
+- rule_id: sfdr-entity-001
+  keyword: "sustainability risks"
+  must_exist: true
+  description: "Describe how sustainability risks are integrated into investment decisions."
+
+- rule_id: sfdr-entity-002
   keyword: "principal adverse impacts"
   must_exist: true
-  description: "Disclose how principal adverse impacts on sustainability factors are considered."
+  description: "State whether and how principal adverse impacts on sustainability factors are considered."
 
-- rule_id: sfdr-policy-001
-  keyword: "sustainability risk policy"
+- rule_id: sfdr-product-001
+  keyword: "sustainable investment objective"
   must_exist: true
-  description: "Describe policies on the integration of sustainability risks in investment decisions."
+  description: "Describe whether the financial product has a sustainable investment objective."
+
+- rule_id: sfdr-product-002
+  keyword: "taxonomy-aligned"
+  must_exist: false
+  description: "Indicate whether the investment is aligned with the EU taxonomy."
+
+- rule_id: sfdr-product-003
+  keyword: "environmental or social characteristics"
+  must_exist: true
+  description: "Disclose the characteristics promoted and the methodologies used to assess them."
+
+- rule_id: sfdr-due-001
+  keyword: "due diligence"
+  must_exist: true
+  description: "Explain due diligence policies on integrating sustainability factors."
 
 - rule_id: sfdr-metrics-001
-  keyword: "emissions intensity"
+  keyword: "greenhouse gas emissions"
   must_exist: true
-  description: "Disclose emissions intensity as part of sustainability indicators."
+  description: "Disclose GHG emissions metrics relevant to the investment portfolio."
 
-- rule_id: sfdr-strategy-001
-  keyword: "investment strategy"
+- rule_id: sfdr-monitoring-001
+  keyword: "sustainability indicators"
   must_exist: true
-  description: "Explain the sustainability-related characteristics of the investment strategy."
+  description: "Describe how sustainability indicators are used to measure performance."
 
 - rule_id: sfdr-remuneration-001
-  keyword: "remuneration policies"
-  must_exist: true
-  description: "Describe how remuneration policies align with sustainability risks."
+  keyword: "remuneration policy"
+  must_exist: false
+  description: "Indicate how the remuneration policy is consistent with sustainability objectives."
+
+- rule_id: sfdr-assurance-001
+  keyword: "external verification"
+  must_exist: false
+  description: "State whether the sustainability disclosures are subject to external verification."
