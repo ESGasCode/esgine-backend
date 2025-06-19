@@ -1,0 +1,24 @@
+- rule_id: fca-gov-001
+  keyword: "governance structure"
+  must_exist: true
+  description: "Disclose the governance structure overseeing ESG risks and opportunities."
+
+- rule_id: fca-risk-001
+  keyword: "risk management process"
+  must_exist: true
+  description: "Describe the process used to identify, assess, and manage ESG-related risks."
+
+- rule_id: fca-metrics-001
+  keyword: "performance metrics"
+  must_exist: true
+  description: "Disclose ESG-related performance metrics, such as carbon emissions."
+
+- rule_id: fca-targets-001
+  keyword: "sustainability targets"
+  must_exist: true
+  description: "Describe the ESG targets set and progress towards achieving them."
+
+- rule_id: fca-assurance-001
+  keyword: "independent assurance"
+  must_exist: true
+  description: "Disclose whether the ESG disclosures are subject to independent assurance."
