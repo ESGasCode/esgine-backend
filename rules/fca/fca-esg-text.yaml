@@ -3,22 +3,57 @@
   must_exist: true
   description: "Disclose the governance structure overseeing ESG risks and opportunities."
 
+- rule_id: fca-gov-002
+  keyword: "board oversight"
+  must_exist: true
+  description: "Describe the board’s role in overseeing ESG strategy and performance."
+
+- rule_id: fca-strategy-001
+  keyword: "esg strategy"
+  must_exist: true
+  description: "Describe the company’s overall ESG strategy and how it is implemented."
+
+- rule_id: fca-strategy-002
+  keyword: "material sustainability issues"
+  must_exist: true
+  description: "Identify the material sustainability issues relevant to the business model."
+
 - rule_id: fca-risk-001
   keyword: "risk management process"
   must_exist: true
   description: "Describe the process used to identify, assess, and manage ESG-related risks."
+
+- rule_id: fca-risk-002
+  keyword: "climate risk scenario"
+  must_exist: false
+  description: "Mention if climate-related risk scenarios are considered."
 
 - rule_id: fca-metrics-001
   keyword: "performance metrics"
   must_exist: true
   description: "Disclose ESG-related performance metrics, such as carbon emissions."
 
+- rule_id: fca-metrics-002
+  keyword: "greenhouse gas emissions"
+  must_exist: true
+  description: "Report Scope 1, 2, or 3 greenhouse gas emissions."
+
 - rule_id: fca-targets-001
   keyword: "sustainability targets"
   must_exist: true
   description: "Describe the ESG targets set and progress towards achieving them."
 
+- rule_id: fca-targets-002
+  keyword: "net zero commitment"
+  must_exist: false
+  description: "Indicate whether the company has made a net zero or carbon neutrality commitment."
+
 - rule_id: fca-assurance-001
   keyword: "independent assurance"
   must_exist: true
   description: "Disclose whether the ESG disclosures are subject to independent assurance."
+
+- rule_id: fca-assurance-002
+  keyword: "external verification"
+  must_exist: false
+  description: "Mention if external ESG report verification has been conducted."
