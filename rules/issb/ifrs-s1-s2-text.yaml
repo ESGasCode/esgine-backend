@@ -1,24 +1,49 @@
-- rule_id: issb-gov-001
-  keyword: "governance processes"
+- rule_id: ifrs-s1-001
+  keyword: "governance of sustainability"
   must_exist: true
-  description: "Disclose the governance processes used to monitor sustainability risks."
+  description: "Disclose the governance processes used to monitor and manage sustainability-related risks and opportunities."
 
-- rule_id: issb-strategy-001
-  keyword: "sustainability risks and opportunities"
+- rule_id: ifrs-s1-002
+  keyword: "sustainability strategy"
   must_exist: true
-  description: "Describe sustainability-related risks and opportunities over the short, medium, and long term."
+  description: "Explain how sustainability-related risks and opportunities impact the entity's strategy and decision-making."
 
-- rule_id: issb-risk-001
-  keyword: "risk identification and assessment"
+- rule_id: ifrs-s1-003
+  keyword: "sustainability-related risk"
   must_exist: true
-  description: "Explain how sustainability risks are identified, assessed, and managed."
+  description: "Describe sustainability-related risks that could reasonably be expected to affect the entity’s prospects."
 
-- rule_id: issb-metrics-001
-  keyword: "ghg emissions"
+- rule_id: ifrs-s1-004
+  keyword: "financial performance"
   must_exist: true
-  description: "Disclose metrics such as greenhouse gas emissions and progress toward ESG targets."
+  description: "Describe how sustainability-related risks and opportunities influence financial performance and cash flows."
 
-- rule_id: issb-assurance-001
-  keyword: "external assurance"
+- rule_id: ifrs-s1-005
+  keyword: "internal control"
+  must_exist: false
+  description: "Describe the entity’s internal controls over sustainability-related disclosures."
+
+- rule_id: ifrs-s2-001
+  keyword: "climate-related risks"
   must_exist: true
-  description: "State whether the sustainability disclosures were externally assured."
+  description: "Disclose significant climate-related risks faced by the entity."
+
+- rule_id: ifrs-s2-002
+  keyword: "transition plan"
+  must_exist: true
+  description: "Describe the entity’s plan to transition to a lower-carbon economy."
+
+- rule_id: ifrs-s2-003
+  keyword: "climate scenario analysis"
+  must_exist: false
+  description: "Describe the resilience of the entity's strategy to climate-related scenarios."
+
+- rule_id: ifrs-s2-004
+  keyword: "GHG emissions"
+  must_exist: true
+  description: "Disclose Scope 1, Scope 2, and Scope 3 greenhouse gas emissions."
+
+- rule_id: ifrs-s2-005
+  keyword: "carbon offsets"
+  must_exist: false
+  description: "If applicable, disclose the use of carbon credits or offsets."
