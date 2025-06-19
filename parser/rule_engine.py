@@ -6,7 +6,6 @@ def validate(report, rules):
     passed = 0
     failed = 0
 
-    # Determine if we're validating structured or unstructured data
     is_structured = isinstance(report, dict) and "report_text" not in report
 
     for rule in rules:
@@ -16,14 +15,14 @@ def validate(report, rules):
         status = False
 
         if is_structured:
-            # For structured JSON: check if any field matches the keyword
             status = any(keyword in str(value).lower() for value in report.values())
         else:
-            # For unstructured reports (PDF, TXT, etc.)
-            text = report.get("report_text", "").lower()
+            # Here, handle text safely
+            text = report["report_text"].lower() if isinstance(report, dict) else report.lower()
             status = keyword in text
 
-        if status == must_exist:
+        compliant = status == must_exist
+        if compliant:
             passed += 1
         else:
             failed += 1
@@ -31,9 +30,9 @@ def validate(report, rules):
         results.append({
             "keyword": keyword,
             "must_exist": must_exist,
-            "compliant": status == must_exist,
+            "compliant": compliant,
             "description": description,
-            "status": status == must_exist
+            "status": compliant
         })
 
     score = round((passed / (passed + failed)) * 100, 2) if (passed + failed) > 0 else 0
