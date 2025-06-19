@@ -1,0 +1,20 @@
+- regulation: SFDR Article 4
+  rule_id: sfdr-pai-001
+  field: pai.indicators.environmental.ghg_intensity
+  must_exist: true
+  description: Disclose GHG intensity of investee companies (Environmental PAI Indicator).
+- regulation: SFDR Article 4
+  rule_id: sfdr-pai-002
+  field: pai.indicators.social.gender_pay_gap
+  must_exist: true
+  description: Disclose gender pay gap (Social PAI Indicator).
+- regulation: SFDR Article 8/9
+  rule_id: sfdr-strategy-001
+  field: sustainability_objectives
+  must_exist: true
+  description: Describe sustainability objectives for ESG-labelled products.
+- regulation: EU Taxonomy Regulation
+  rule_id: sfdr-taxonomy-001
+  field: taxonomy_alignment.percentage
+  must_exist: true
+  description: Disclose percentage alignment with EU Taxonomy.
