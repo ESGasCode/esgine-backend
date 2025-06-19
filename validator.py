@@ -1,5 +1,8 @@
 import yaml
 import json
+from colorama import init, Fore, Style
+
+init(autoreset=True)
 
 def load_rules(file_path):
     with open(file_path, 'r') as f:
@@ -38,6 +41,21 @@ def validate(disclosure, rules):
 
     return results
 
+def print_results(results, selected_regulator):
+    print(f"\nValidation Results for: {selected_regulator.upper()}\n" + "-" * 50)
+
+    for r in results:
+        status = r["compliant"]
+        symbol = f"{Fore.GREEN}✅ PASS" if status else f"{Fore.RED}❌ FAIL"
+        print(f"{symbol}{Style.RESET_ALL} | {r['rule_id']}: {r['description']}")
+        if not status:
+            print(f"    ↳ Missing or invalid field: {r['field']}")
+
+    total = len(results)
+    passed = sum(r["compliant"] for r in results)
+    print("\n" + "-" * 50)
+    print(f"Summary: {Fore.CYAN}{passed}/{total} rules passed{Style.RESET_ALL}")
+
 if __name__ == "__main__":
     print("Select a rule set to validate against:")
     print("Options: fca | sec | sfdr | issb")
@@ -51,16 +69,11 @@ if __name__ == "__main__":
     }
 
     if selected not in rule_paths:
-        print("Invalid choice. Please enter one of: fca, sec, sfdr, issb")
+        print(f"{Fore.RED}Invalid choice. Please enter one of: fca, sec, sfdr, issb{Style.RESET_ALL}")
         exit()
 
     rule_file, disclosure_file = rule_paths[selected]
     rules = load_rules(rule_file)
     disclosure = load_disclosure(disclosure_file)
     results = validate(disclosure, rules)
-
-    for r in results:
-        status = "✅ PASS" if r["compliant"] else "❌ FAIL"
-        print(f"{status} | {r['rule_id']}: {r['description']}")
-        if not r["compliant"]:
-            print(f"    ↳ Missing or invalid field: {r['field']}\n")
+    print_results(results, selected)
