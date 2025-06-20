@@ -31,7 +31,7 @@ def validate(report, rules):
     # If report is dict (JSON file)
     elif isinstance(report, dict):
         for rule in rules:
-            field = rule.get("keyword", "")
+            field = rule.get("field") or rule.get("keyword", "")
             required = rule.get("must_exist", False)
             exists = field in report
             compliant = required == exists
