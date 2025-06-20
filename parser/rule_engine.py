@@ -1,12 +1,13 @@
-import yaml
-import json
-
 def validate(report, rules):
     results = []
     passed = 0
     failed = 0
 
-    # If report is string (text), treat it differently
+    # If rules is a dict with a key "compliance_check", extract the list
+    if isinstance(rules, dict) and "compliance_check" in rules:
+        rules = rules["compliance_check"]
+
+    # If report is string (PDF/TXT/DOCX)
     if isinstance(report, str):
         report_text = report.lower()
         for rule in rules:
@@ -27,7 +28,7 @@ def validate(report, rules):
                 "status": compliant
             })
 
-    # If report is dict (from JSON)
+    # If report is dict (JSON file)
     elif isinstance(report, dict):
         for rule in rules:
             field = rule.get("keyword", "")
@@ -58,7 +59,5 @@ def validate(report, rules):
         "rules": results
     }
 
-# ESGine expects this function
 def run_rule_engine(data, rules):
     return validate(data, rules)
-
