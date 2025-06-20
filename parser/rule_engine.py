@@ -1,47 +1,39 @@
-import re
+import yaml
+import json
 
 def validate(data, rules):
     results = []
     passed = 0
     failed = 0
 
-    # Determine if data is dict (JSON) or str (text from PDF/DOCX)
-    if isinstance(data, dict):
-        is_json = True
-    elif isinstance(data, str):
-        is_json = False
-    elif isinstance(data, dict) and "report_text" in data:
-        is_json = False
-        data = data.get("report_text", "")
-    else:
-        raise ValueError("Unsupported data type for validation")
+    # If input is text (PDF/DOCX), wrap it in a dict with 'report_text' key
+    if isinstance(data, str):
+        data = {"report_text": data}
 
     for rule in rules:
         keyword = rule.get("keyword", "").lower()
-        required = rule.get("must_exist", False)
-        description = rule.get("description", "No description provided.")
-        rule_id = rule.get("rule_id", "unknown")
+        must_exist = rule.get("must_exist", False)
+        description = rule.get("description", "No description provided")
 
-        if is_json:
-            # For structured data (JSON)
-            exists = any(keyword in str(value).lower() for value in data.values())
+        # Check if we're dealing with structured data (JSON) or raw text
+        if "report_text" in data:
+            report_text = data["report_text"].lower()
+            exists = keyword in report_text
         else:
-            # For unstructured text
-            exists = keyword in data.lower()
+            exists = keyword in json.dumps(data).lower()
 
-        compliant = required == exists
+        compliant = must_exist == exists
         if compliant:
             passed += 1
         else:
             failed += 1
 
         results.append({
-            "rule_id": rule_id,
-            "keyword": keyword,
-            "must_exist": required,
+            "rule_id": rule.get("rule_id", "N/A"),
+            "description": description,
+            "must_exist": must_exist,
             "exists": exists,
             "compliant": compliant,
-            "description": description,
             "status": compliant
         })
 
@@ -55,3 +47,4 @@ def validate(data, rules):
 
 def run_rule_engine(data, rules):
     return validate(data, rules)
+
