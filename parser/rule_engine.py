@@ -1,57 +1,47 @@
+import yaml
+import json
+
 def validate(report, rules):
     results = []
     passed = 0
     failed = 0
 
-    # If rules is a dict with a key "compliance_check", extract the list
-    if isinstance(rules, dict) and "compliance_check" in rules:
-        rules = rules["compliance_check"]
+    for rule in rules.get("compliance_check", []):
+        # Support both 'field' and 'keyword' for compatibility
+        field = rule.get("keyword") or rule.get("field") or ""
+        required = rule.get("must_exist", False)
+        description = rule.get("description", f"Check for keyword '{field}'")
 
-    # If report is string (PDF/TXT/DOCX)
-    if isinstance(report, str):
-        report_text = report.lower()
-        for rule in rules:
-            keyword = rule.get("keyword", "").lower()
-            required = rule.get("must_exist", False)
-            exists = keyword in report_text
-            compliant = required == exists
-            if compliant:
-                passed += 1
-            else:
-                failed += 1
-            results.append({
-                "keyword": keyword,
-                "must_exist": required,
-                "exists": exists,
-                "compliant": compliant,
-                "description": rule.get("description", f"Check for keyword '{keyword}'"),
-                "status": compliant
-            })
+        # Handle JSON (dict) input
+        if isinstance(report, dict):
+            # Case-insensitive key check
+            exists = any(field.lower() == key.lower() for key in report.keys())
 
-    # If report is dict (JSON file)
-    elif isinstance(report, dict):
-        for rule in rules:
-            field = rule.get("field") or rule.get("keyword", "")
-            required = rule.get("must_exist", False)
-            exists = field in report
-            compliant = required == exists
-            if compliant:
-                passed += 1
-            else:
-                failed += 1
-            results.append({
-                "field": field,
-                "must_exist": required,
-                "exists": exists,
-                "compliant": compliant,
-                "description": rule.get("description", f"Check for field '{field}'"),
-                "status": compliant
-            })
+        # Handle extracted text (str) input
+        elif isinstance(report, str):
+            exists = field.lower() in report.lower()
 
-    else:
-        raise ValueError("Unsupported report format. Must be dict or string.")
+        else:
+            exists = False
+
+        compliant = required == exists
+
+        if compliant:
+            passed += 1
+        else:
+            failed += 1
+
+        results.append({
+            "field": field,
+            "must_exist": required,
+            "exists": exists,
+            "compliant": compliant,
+            "description": description,
+            "status": compliant
+        })
 
     score = round((passed / (passed + failed)) * 100, 2) if (passed + failed) > 0 else 0
+
     return {
         "score": score,
         "passed": passed,
