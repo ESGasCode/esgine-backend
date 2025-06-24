@@ -1,23 +1,30 @@
 import yaml
 import json
 
+def get_nested_value(data, dotted_key):
+    """Safely navigate nested dicts using dot notation like 'metrics.scope1'."""
+    keys = dotted_key.split('.')
+    for key in keys:
+        if isinstance(data, dict):
+            data = data.get(key)
+        else:
+            return None
+    return data
+
 def validate(report, rules):
     results = []
     passed = 0
     failed = 0
 
     for rule in rules.get("compliance_check", []):
-        # Support both 'field' and 'keyword' for compatibility
         field = rule.get("keyword") or rule.get("field") or ""
         required = rule.get("must_exist", False)
         description = rule.get("description", f"Check for keyword '{field}'")
 
-        # Handle JSON (dict) input
         if isinstance(report, dict):
-            # Case-insensitive key check
-            exists = any(field.lower() == key.lower() for key in report.keys())
+            value = get_nested_value(report, field)
+            exists = value is not None
 
-        # Handle extracted text (str) input
         elif isinstance(report, str):
             exists = field.lower() in report.lower()
 
@@ -25,7 +32,6 @@ def validate(report, rules):
             exists = False
 
         compliant = required == exists
-
         if compliant:
             passed += 1
         else:
