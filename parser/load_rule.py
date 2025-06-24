@@ -1,15 +1,19 @@
 import yaml
 
-def load_rule(file_path, regulator=None):
-    with open(file_path, 'r') as file:
-        data = yaml.safe_load(file)
+def load_rule(regulator: str, base_path="parser/rules/unified_esg_rules.yaml"):
+    """
+    Load rule set by regulator prefix (e.g., FCA, SEC, SFDR, ISSB).
+    """
+    with open(base_path, "r") as file:
+        all_rules = yaml.safe_load(file)
 
-    if regulator:
-        # Filter rules for the selected regulator (FCA, SEC, SFDR, ISSB)
-        filtered_rules = [
-            rule for rule in data if rule.get("regulation", "").lower().startswith(regulator.lower())
-        ]
-        return {"compliance_check": filtered_rules}
+    regulator_rules = [
+        rule for rule in all_rules
+        if rule.get("regulation", "").lower().startswith(regulator.lower())
+    ]
 
-    # Return all rules if no specific regulator is provided
-    return {"compliance_check": data}
+    return {
+        "regulation": regulator.upper(),
+        "compliance_check": regulator_rules
+    }
+
