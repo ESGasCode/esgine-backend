@@ -1,0 +1,57 @@
+regulations:
+- name: FCA
+  version: ESG 1.2.4R
+  framework_id: fca-esg-1.2.4r
+  rules:
+  - rule_id: fca-metrics-001
+    field: metrics.emissions.scope1
+    must_exist: true
+    description: Disclose Scope 1 GHG emissions data.
+  - rule_id: fca-metrics-002
+    field: metrics.emissions.scope2
+    must_exist: true
+    description: Disclose Scope 2 GHG emissions data.
+  - rule_id: fca-methodology
+    field: metrics.methodology_description
+    must_exist: true
+    description: Disclose the methodology used to calculate ESG metrics.
+  - rule_id: fca-data-sources
+    field: metrics.data_sources
+    must_exist: true
+    description: Disclose the data sources used for ESG reporting.
+- name: SEC
+  version: 2023 Draft Rules
+  framework_id: sec-esg-2023
+  rules:
+  - rule_id: sec-risk-001
+    field: risk_management.process
+    must_exist: true
+    description: Describe how ESG risks are managed enterprise-wide.
+  - rule_id: sec-board-role
+    field: governance.board_oversight
+    must_exist: true
+    description: "Describe board\u2019s role in ESG risk oversight."
+- name: SFDR
+  version: EU 2019/2088
+  framework_id: sfdr-eu-2019-2088
+  rules:
+  - rule_id: sfdr-pa-001
+    field: principal_adverse_impacts
+    must_exist: true
+    description: Disclose principal adverse impacts of investment decisions.
+  - rule_id: sfdr-sustainability-risk
+    field: sustainability_risk_policies
+    must_exist: true
+    description: Describe the sustainability risk policies applied.
+- name: ISSB
+  version: IFRS S1/S2
+  framework_id: issb-ifrs
+  rules:
+  - rule_id: issb-disclosure-001
+    field: disclosures.ghg_emissions.scope1
+    must_exist: true
+    description: Disclose Scope 1 GHG emissions as per ISSB S2.
+  - rule_id: issb-strategy-001
+    field: strategy.transition_plan
+    must_exist: true
+    description: Outline the transition plan aligned with climate targets.
