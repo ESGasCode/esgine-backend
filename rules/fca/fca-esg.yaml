@@ -42,3 +42,14 @@
   field: metrics.targets
   must_exist: true
   description: Describe climate-related targets and performance against those targets.
+- regulation: FCA ESG 1.2.4R
+  rule_id: fca-metrics-004
+  field: metrics.methodology_description
+  must_exist: true
+  description: Disclose the methodology used to calculate or estimate ESG metrics.
+- regulation: FCA ESG 1.2.4R
+  rule_id: fca-metrics-005
+  field: metrics.data_sources
+  must_exist: true
+  description: Disclose the data sources used for ESG metrics and reporting.
+
